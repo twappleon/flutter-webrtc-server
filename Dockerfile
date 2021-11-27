@@ -14,6 +14,10 @@ COPY go.mod ./go.mod
 RUN go mod tidy
 COPY . .
 RUN pwd && ls
+RUN echo $GOPATH
+
 RUN go build github.com/cloudwebrtc/flutter-webrtc-server/cmd/server
 
-EXPOSE 8080
+EXPOSE 8086
+
+CMD ["./server"]
